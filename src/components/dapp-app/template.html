@@ -99,7 +99,7 @@
   .main-content {
     padding-top: 64px;
     min-height: 100vh;
-    padding-bottom: 100px;
+    margin-bottom: 60px;
   }
 
   footer {
@@ -116,7 +116,7 @@
     height: 67px;
     background-color: var(--app-primary-color);
     width: 100%;
-    color: #ffffffd6;
+    color: #ffffff8f;
     display: flex;
     box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.08);
   }
@@ -134,7 +134,7 @@
     pointer-events: none;
   }
   .bottom-nav>a[selected]{
-  
+    color: white;
   }
   .flex{
     flex: 1;
@@ -185,22 +185,23 @@
 <main class="main-content" id="main">
   <dapp-home class="page" selected$="[[is_selected(_page, 'home')]]"></dapp-home>
   <dapp-category class="page" selected$="[[is_selected(_page, 'category')]]"></dapp-category>
+  <dapp-class class="page" selected$="[[is_selected(_page, 'class')]]"></dapp-class>
 </main>
 
 <nav class="bottom-nav">
-  <a selected$="[[is_selected(page, 'home')]]" href="/">
+  <a selected$="[[is_selected(_page, 'home')]]" href="/">
     <iron-icon icon="my-icons:spa"></iron-icon>
     <paper-ripple></paper-ripple>
   </a>
-  <a selected$="[[is_selected(page, 'view1')]]" href="/search/hotels">
+  <a selected$="[[is_selected(_page, 'view1')]]" href="/search/hotels">
     <iron-icon icon="my-icons:calendar"></iron-icon>
     <paper-ripple></paper-ripple>
   </a>
-  <a selected$="[[is_selected(page, 'view1')]]" href="/search/flights">
+  <a selected$="[[is_selected(_page, 'view1')]]" href="/search/flights">
     <iron-icon icon="my-icons:contact"></iron-icon>
     <paper-ripple></paper-ripple>
   </a>
-  <a selected$="[[is_selected(page, 'view1')]]" href="/">
+  <a selected$="[[is_selected(_page, 'view1')]]" href="/">
     <iron-icon icon="my-icons:location"></iron-icon> 
     <paper-ripple></paper-ripple>
   </a>

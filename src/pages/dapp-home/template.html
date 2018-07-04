@@ -39,14 +39,15 @@
     .class-item{
         border-radius: 12px;
         box-shadow: 0px 0px 24px #d8d8d8;
-        min-height: 290px;
+        min-height: 246px;
         overflow: hidden;
-        margin: 24px 0;
+        margin: 24px 4px;
         position: relative;
+        max-width: 300px;
     }
     .class-item .class--highlight, 
     .class-item .class--highlight>iron-image{
-        height: 190px;
+        height: 150px;
         width: 100%;
     }
     .wrapper:hover:before {
@@ -92,6 +93,36 @@
     .bold{
         font-weight: 600;
     }
+    .avatar-wrapper{
+       width: 380px;
+    }
+    .avatar{
+        border-radius: 4px;
+        background-color: #eee;
+        background-image: url(https://scontent.fkul13-1.fna.fbcdn.net/v/t1.0-9/33116226_1476432442463523_1327689513497001984_n.jpg?_nc_cat=0&oh=994be7999b2f5b8a931ce8ed2a02f690&oe=5BDA4221);
+        background-size: cover;
+        height: 100px;
+        border-radius: 50%;
+        width: 100px;
+        margin:0 auto;
+    }
+    .instructor-wrapper{
+        padding: 16px 0;
+    }
+    .instructor-wrapper .name{
+        margin: 0;
+        color: #444;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+    .instructor-wrapper .location{
+        color: #6f6f6f;
+        font-size: 14px;
+    }
+    .instructor-info{
+        text-align: center;
+        margin: 16px;
+    }
 </style>
 <section class="app-section">
     <h1 class="title">Category</h1>
@@ -134,75 +165,100 @@
         <paper-button class="primary-button">Join Today</paper-button>
     </div>
 </section>
-<section>
-    <h1 class="title">Power of Concentration</h1>
-    <div class="classes-list">
-        <div class="class-item wrapper">
-            <div class="class--highlight">
-                <iron-image 
-                    sizing="cover" 
-                    preload 
-                    src="/assets/images/twisted.jpg"></iron-image>
-            </div>
-            <div class="class-info">
-                <div>
-                    <iron-icon icon="my-icons:location"></iron-icon>
-                    <span class="location">Liz Studio, Kuala Lumpur</span>
+<section class="app-section">
+    <h1 class="title">Our Offerings</h1>
+    <div class="classes-list horizontal-scroll">
+        <a href="/class/cool-one">
+            <div class="class-item wrapper">
+                <div class="class--highlight">
+                    <iron-image 
+                        sizing="cover" 
+                        preload 
+                        src="/assets/images/twisted.jpg"></iron-image>
                 </div>
-                <div class="layout horizontal">
-                    <iron-icon icon="my-icons:time"></iron-icon>
-                    <span>2h</span>
-                    <span class="flex"></span>
-                </div>
-            </div>
-        </div>
-        <div class="class-item wrapper">
-            <div class="class--highlight">
-                <iron-image sizing="cover" preload src="/assets/images/exercise-feet-fitness-892682.jpg"></iron-image>
-            </div>
-            <div class="class-info">
-                <div>
-                    <iron-icon icon="my-icons:location"></iron-icon>
-                    <span class="location">Liz Studio, Kuala Lumpur</span>
-                </div>
-                <div class="layout horizontal">
-                    <iron-icon icon="my-icons:time"></iron-icon>
-                    <span>30m</span>
-                    <span class="flex"></span>
+                <div class="class-info">
+                    <div>
+                        <iron-icon icon="my-icons:location"></iron-icon>
+                        <span class="location">Liz Studio, Kuala Lumpur</span>
+                    </div>
+                    <div class="layout horizontal">
+                        <iron-icon icon="my-icons:time"></iron-icon>
+                        <span>2h</span>
+                        <span class="flex"></span>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="class-item wrapper">
-            <div class="class--highlight">
-                <iron-image sizing="cover" preload src="/assets/images/acro-yoga-balance-chakra-1139488.jpg"></iron-image>
-            </div>
-            <div class="class-info">
-                <div>
-                    <iron-icon icon="my-icons:location"></iron-icon>
-                    <span class="location">Liz Studio, Kuala Lumpur</span>
+        </a>
+        <a href="/class/cool-one">
+            <div class="class-item wrapper">
+                <div class="class--highlight">
+                    <iron-image sizing="cover" preload src="/assets/images/exercise-feet-fitness-892682.jpg"></iron-image>
                 </div>
-                <div class="layout horizontal">
-                    <iron-icon icon="my-icons:time"></iron-icon>
-                    <span>1h</span>
-                    <span class="flex"></span>
-                </div>
-            </div>
-        </div>
-        <div class="class-item wrapper">
-            <div class="class--highlight">
-                <iron-image sizing="cover" preload src="/assets/images/three-legged-dog.jpg"></iron-image>
-            </div>
-            <div class="class-info">
-                <div>
-                    <iron-icon icon="my-icons:location"></iron-icon>
-                    <span class="location">Liz Studio, Kuala Lumpur</span>
-                </div>
-                <div class="layout horizontal">
-                    <iron-icon icon="my-icons:time"></iron-icon>
-                    <span>1h 30m</span>
-                    <span class="flex"></span>
+                <div class="class-info">
+                    <div>
+                        <iron-icon icon="my-icons:location"></iron-icon>
+                        <span class="location">Liz Studio, Kuala Lumpur</span>
+                    </div>
+                    <div class="layout horizontal">
+                        <iron-icon icon="my-icons:time"></iron-icon>
+                        <span>30m</span>
+                        <span class="flex"></span>
+                    </div>
                 </div>
             </div>
-        </div>
+        </a>
+        <a href="/class/cool-one">
+            <div class="class-item wrapper">
+                <div class="class--highlight">
+                    <iron-image sizing="cover" preload src="/assets/images/acro-yoga-balance-chakra-1139488.jpg"></iron-image>
+                </div>
+                <div class="class-info">
+                    <div>
+                        <iron-icon icon="my-icons:location"></iron-icon>
+                        <span class="location">Liz Studio, Kuala Lumpur</span>
+                    </div>
+                    <div class="layout horizontal">
+                        <iron-icon icon="my-icons:time"></iron-icon>
+                        <span>1h</span>
+                        <span class="flex"></span>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a href="/class/cool-one">
+            <div class="class-item wrapper">
+                <div class="class--highlight">
+                    <iron-image sizing="cover" preload src="/assets/images/three-legged-dog.jpg"></iron-image>
+                </div>
+                <div class="class-info">
+                    <div>
+                        <iron-icon icon="my-icons:location"></iron-icon>
+                        <span class="location">Liz Studio, Kuala Lumpur</span>
+                    </div>
+                    <div class="layout horizontal">
+                        <iron-icon icon="my-icons:time"></iron-icon>
+                        <span>1h 30m</span>
+                        <span class="flex"></span>
+                    </div>
+                </div>
+            </div>
+        </a>
     </div>
+</section>
+<section class="app-section">
+    <h1 class="title">Meet the Instructor</h1>
+    <section class="instructor-wrapper">
+        <div class="avatar-wrapper">
+            <div class="avatar">
+                <img src="#" alt="#" hidden>
+            </div>
+        </div>
+        <div class="instructor-info">
+            <h1 class="name">Elizabeth Yen Tzu Liew</h1>
+            <p text style="margin: 4px 0">Professional instructor with experience in lorem. Never stops empowering and motivating</p>
+            <div class="pad">
+                <paper-button class="primary-button">Read More</paper-button>
+            </div>
+        </div>
+    </section>
 </section>

@@ -30,7 +30,7 @@ export const navigate = (path) => (dispatch) => {
 const loadPage = (page) => async (dispatch) => {
   // If the page is invalid, set to 404. The is also a good spot to check
   // other location things like sub-path or query params.
-  if (['home', 'category'].indexOf(page) === -1) {
+  if (['home', 'category', 'class'].indexOf(page) === -1) {
     page = 'view404';
   }
 
@@ -44,6 +44,9 @@ const loadPage = (page) => async (dispatch) => {
       break;
     case 'category':
       await import('../pages/dapp-category');
+      break;
+    case 'class':
+      await import('../pages/dapp-class');
       break;
     default:
       await import('../pages/my-view404.js');

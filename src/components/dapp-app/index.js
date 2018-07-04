@@ -76,14 +76,10 @@ class DappApp extends connect(store)(PolymerElement) {
   }
 
   _pageChanged(page){
-    switch (page) {
-      case 'category':
-        this.hasHeader = false;
-        break;
-    
-      default:
-        this.hasHeader = true;
-        break;
+    if (['category', 'class'].indexOf(page) != -1) {
+      this.hasHeader = false;
+    }else {
+      this.hasHeader = true;
     }
   }
 

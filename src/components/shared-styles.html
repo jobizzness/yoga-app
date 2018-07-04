@@ -1,0 +1,44 @@
+<style include="iron-flex iron-flex-factors iron-flex-alignment iron-positioning">
+  :host {
+    display: block;
+    box-sizing: border-box;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .content {
+    max-width: 1170px;
+    margin: 0 auto;
+  }
+
+  .pad {
+    padding: 16px;
+  }
+
+  .horizontal-scroll{
+    margin-bottom: -17px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 17px;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+  .horizontal-scroll>*{
+    display: inline-block;
+  }
+
+  @media only screen and (max-device-width: 480px) and (min-device-width: 320px) {
+    .hide-on--mobile {
+      display: none;
+    }
+  }
+
+  @media only screen and (max-device-width: 1800px) and (min-device-width: 480px) {
+    .show-on-mobile {
+      display: none;
+    }
+  }
+</style>

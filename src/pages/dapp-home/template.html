@@ -1,0 +1,208 @@
+<style>
+    :host{
+        display: block;
+        padding: 16px;
+    }
+    .category-item{
+        padding: 24px;
+        margin: 16px 8px;
+        width: 127px;
+        height: 101px;
+        border-radius: 4px;
+        box-shadow: 0px 0px 24px #d8d8d8;
+    }
+    .category-item .category-item--icon{
+        width: 45px;
+        height: 45px;
+        margin-bottom: 24px;
+    }
+    .category-item .category-item--label{
+        font-size: 16px;
+    }
+    .title{
+        font-size: 1.2rem;
+        color: #585858;
+        font-weight: 300;
+    }
+    .class-info{
+        padding: 16px;
+    }
+    .class-info iron-icon{
+        color: var(--app-primary-color);
+        margin-right: 8px;
+    }
+    .class-info>*{
+        margin-bottom: 8px;
+        color: #595959;
+        font-weight: 500;
+    }
+    .class-item{
+        border-radius: 12px;
+        box-shadow: 0px 0px 24px #d8d8d8;
+        min-height: 290px;
+        overflow: hidden;
+        margin: 24px 0;
+        position: relative;
+    }
+    .class-item .class--highlight, 
+    .class-item .class--highlight>iron-image{
+        height: 190px;
+        width: 100%;
+    }
+    .wrapper:hover:before {
+     opacity: .04;
+    }
+    
+    .wrapper:before {
+        position: absolute; opacity: 0; width: 100%; height: 100%; pointer-events: none; background: #000; content:
+                ""; -webkit-transition: opacity 15ms linear; -o-transition: opacity 15ms linear; transition: opacity 15ms linear; z-index:1;
+    }
+
+    .wrapper, iron-image {
+        width: 100%;
+                    height: 100%;
+    }
+    .app-section{
+        margin-bottom: 24px;
+    }
+    [title]{
+        margin: 0;
+        color: var(--app-primary-color);
+        font-size: 1.4rem;
+        font-weight: 500;
+    }
+    [sub-title]{
+        margin: 0;
+        font-size: 14px;
+        font-weight: 300;
+        color: #fe1f63;
+    }
+    [text]{
+        font-size: .9rem;
+        color: #707070;
+        font-weight: 400;
+    }
+    [primary]{
+        color: var(--app-primary-color);
+    }
+    .primary-button{
+       background-color: var(--app-primary-color);
+       color:white
+    }
+    .bold{
+        font-weight: 600;
+    }
+</style>
+<section class="app-section">
+    <h1 class="title">Category</h1>
+    <div class="horizontal-scroll">
+        <a href="/category/focus">
+            <div class="category-item">
+                <iron-icon src="/assets/icons/focus.svg" class="category-item--icon"></iron-icon>
+                <div>
+                    <span class="category-item--label">Focus</span>
+                    <iron-icon icon="my-icons:chevron-right"></iron-icon>
+                </div>
+            </div>
+        </a>
+        <a href="/category/heal">
+            <div class="category-item">
+                <iron-icon src="/assets/icons/care.svg" class="category-item--icon"></iron-icon>
+                <div>
+                    <span class="category-item--label">Heal</span>
+                    <iron-icon icon="my-icons:chevron-right"></iron-icon>
+                </div>
+            </div>
+        </a>
+        <a href="/category/kids-yoga">
+            <div class="category-item">
+                <iron-icon src="/assets/icons/maternity.svg" class="category-item--icon"></iron-icon>
+                <div>
+                    <span class="category-item--label">Kids Yoga</span>
+                    <iron-icon icon="my-icons:chevron-right"></iron-icon>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+</section>
+<section class="app-section">
+    <div class="pad">
+        <h2 title>The Science of stillness</h2>
+        <h3 sub-title>Our happiness is in our own hands</h3>
+        <p text>Join us every Tuesday at Freshness center for a full day mediatation conducted by <span primary class="bold">Liz</span></p>
+        <paper-button class="primary-button">Join Today</paper-button>
+    </div>
+</section>
+<section>
+    <h1 class="title">Power of Concentration</h1>
+    <div class="classes-list">
+        <div class="class-item wrapper">
+            <div class="class--highlight">
+                <iron-image 
+                    sizing="cover" 
+                    preload 
+                    src="/assets/images/twisted.jpg"></iron-image>
+            </div>
+            <div class="class-info">
+                <div>
+                    <iron-icon icon="my-icons:location"></iron-icon>
+                    <span class="location">Liz Studio, Kuala Lumpur</span>
+                </div>
+                <div class="layout horizontal">
+                    <iron-icon icon="my-icons:time"></iron-icon>
+                    <span>2h</span>
+                    <span class="flex"></span>
+                </div>
+            </div>
+        </div>
+        <div class="class-item wrapper">
+            <div class="class--highlight">
+                <iron-image sizing="cover" preload src="/assets/images/exercise-feet-fitness-892682.jpg"></iron-image>
+            </div>
+            <div class="class-info">
+                <div>
+                    <iron-icon icon="my-icons:location"></iron-icon>
+                    <span class="location">Liz Studio, Kuala Lumpur</span>
+                </div>
+                <div class="layout horizontal">
+                    <iron-icon icon="my-icons:time"></iron-icon>
+                    <span>30m</span>
+                    <span class="flex"></span>
+                </div>
+            </div>
+        </div>
+        <div class="class-item wrapper">
+            <div class="class--highlight">
+                <iron-image sizing="cover" preload src="/assets/images/acro-yoga-balance-chakra-1139488.jpg"></iron-image>
+            </div>
+            <div class="class-info">
+                <div>
+                    <iron-icon icon="my-icons:location"></iron-icon>
+                    <span class="location">Liz Studio, Kuala Lumpur</span>
+                </div>
+                <div class="layout horizontal">
+                    <iron-icon icon="my-icons:time"></iron-icon>
+                    <span>1h</span>
+                    <span class="flex"></span>
+                </div>
+            </div>
+        </div>
+        <div class="class-item wrapper">
+            <div class="class--highlight">
+                <iron-image sizing="cover" preload src="/assets/images/three-legged-dog.jpg"></iron-image>
+            </div>
+            <div class="class-info">
+                <div>
+                    <iron-icon icon="my-icons:location"></iron-icon>
+                    <span class="location">Liz Studio, Kuala Lumpur</span>
+                </div>
+                <div class="layout horizontal">
+                    <iron-icon icon="my-icons:time"></iron-icon>
+                    <span>1h 30m</span>
+                    <span class="flex"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,213 @@
+<style>
+  :host {
+    --app-drawer-width: 256px;
+    display: block;
+    background-color: white;
+  }
+
+  .main-content.no-pad{
+    padding-top: 0;
+  }
+  app-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background-color: var(--app-header-background-color);
+    color: var(--app-header-text-color);
+    z-index: 1;
+  }
+  app-header.hide{
+    transition-duration: 250ms !important;
+    transform: translate3d(0px, -70px, 0px) !important;
+  }
+  app-drawer{
+    z-index: 2;
+  }
+  
+  .toolbar-top {
+    background-color: var(--app-header-background-color);
+    color: var(--app-primary-color);
+  }
+
+  .page {
+    display: none;
+  }
+
+  .page[active] {
+    display: block;
+  }
+
+  [main-title] {
+    font-family: 'Pacifico';
+    text-transform: lowercase;
+    font-size: 30px;
+    /* In the narrow layout, the toolbar is offset by the width of the
+        drawer button, and the text looks not centered. Add a padding to
+        match that button */
+    padding-right: 44px;
+  }
+
+  .toolbar-list {
+    display: none;
+  }
+
+  .toolbar-list>a {
+    display: inline-block;
+    color: var(--app-header-text-color);
+    text-decoration: none;
+    line-height: 30px;
+    padding: 4px 24px;
+  }
+
+  .toolbar-list>a[selected] {
+    color: var(--app-header-selected-color);
+    border-bottom: 4px solid var(--app-header-selected-color);
+  }
+
+  .menu-btn {
+    background: none;
+    border: none;
+    fill: var(--app-header-text-color);
+    cursor: pointer;
+    height: 44px;
+    width: 44px;
+  }
+
+  .drawer-list {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 24px;
+    background: var(--app-drawer-background-color);
+    position: relative;
+  }
+
+  .drawer-list>a {
+    display: block;
+    text-decoration: none;
+    color: var(--app-drawer-text-color);
+    line-height: 40px;
+    padding: 0 24px;
+  }
+
+  .drawer-list>a[selected] {
+    color: var(--app-drawer-selected-color);
+  }
+
+  .main-content {
+    padding-top: 64px;
+    min-height: 100vh;
+    padding-bottom: 100px;
+  }
+
+  footer {
+    padding: 24px;
+    background: var(--app-drawer-background-color);
+    color: var(--app-drawer-text-color);
+    text-align: center;
+  }
+  .bottom-nav{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 67px;
+    background-color: var(--app-primary-color);
+    width: 100%;
+    color: #ffffffd6;
+    display: flex;
+    box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.08);
+  }
+  .bottom-nav>a{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex:1;
+    font-size: .7rem;
+    color: inherit;
+    flex-direction: column;
+  }
+  .bottom-nav>a>*{
+    pointer-events: none;
+  }
+  .bottom-nav>a[selected]{
+  
+  }
+  .flex{
+    flex: 1;
+  }
+  /* Wide layout: when the viewport width is bigger than 460px, layout
+      changes to a wide layout. */
+
+  @media (min-width: 460px) {
+    .toolbar-list {
+      display: block;
+    }
+    .menu-btn {
+      display: none;
+    }
+    .main-content {
+      padding-top: 107px;
+    }
+    /* The drawer button isn't shown in the wide layout, so we don't
+        need to offset the title */
+    [main-title] {
+      padding-right: 0px;
+    }
+  }
+</style>
+<!-- Header -->
+<app-header condenses reveals effects="waterfall" id="header">
+  <app-toolbar class="toolbar-top">
+    <paper-icon-button icon="my-icons:menu" on-click="_toggleDrawer"></paper-icon-button>
+    <span class="flex"></span>
+    <paper-icon-button icon="my-icons:bell"></paper-icon-button>
+  </app-toolbar>
+  <!-- This gets hidden on a small screen-->
+  <!-- <nav class="toolbar-list">
+    <a selected$="[[is_selected(_page, 'view1')]]" href="/view1">View One</a>
+    <a selected$="[[is_selected(_page, 'view2')]]" href="/view2">View Two</a>
+    <a selected$="[[is_selected(_page, 'view3')]]" href="/view3">View Three</a>
+  </nav> -->
+</app-header>
+<!-- Drawer content -->
+<app-drawer opened="[[_drawerOpened]]" on-opened-changed="updateDrawerState">
+  <nav class="drawer-list">
+    <a selected$="[[is_selected(_page, 'view1')]]" href="/view1">View One</a>
+    <a selected$="[[is_selected(_page, 'view2')]]" href="/view2">View Two</a>
+    <a selected$="[[is_selected(_page, 'view3')]]" href="/view3">View Three</a>
+  </nav>
+</app-drawer>
+<!-- Main content -->
+<main class="main-content" id="main">
+  <dapp-home class="page" selected$="[[is_selected(_page, 'home')]]"></dapp-home>
+  <dapp-category class="page" selected$="[[is_selected(_page, 'category')]]"></dapp-category>
+</main>
+
+<nav class="bottom-nav">
+  <a selected$="[[is_selected(page, 'home')]]" href="/">
+    <iron-icon icon="my-icons:spa"></iron-icon>
+    <paper-ripple></paper-ripple>
+  </a>
+  <a selected$="[[is_selected(page, 'view1')]]" href="/search/hotels">
+    <iron-icon icon="my-icons:calendar"></iron-icon>
+    <paper-ripple></paper-ripple>
+  </a>
+  <a selected$="[[is_selected(page, 'view1')]]" href="/search/flights">
+    <iron-icon icon="my-icons:contact"></iron-icon>
+    <paper-ripple></paper-ripple>
+  </a>
+  <a selected$="[[is_selected(page, 'view1')]]" href="/">
+    <iron-icon icon="my-icons:location"></iron-icon> 
+    <paper-ripple></paper-ripple>
+  </a>
+</nav>
+
+<!-- <footer>
+  <p>Made with &lt;3 by the Polymer team.</p>
+</footer> -->
+<!-- <snack-bar active?="${_snackbarOpened}">
+  You are now ${_offline ? 'offline' : 'online'}.</snack-bar> -->
